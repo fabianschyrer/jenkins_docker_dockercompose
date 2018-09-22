@@ -1,0 +1,1 @@
+docker run <DOCKER_REGISTRY>/jenkins:latest

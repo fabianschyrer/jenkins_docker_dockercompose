@@ -1,0 +1,16 @@
+version: "3"
+services:
+  jenkins:
+    image: <DOCKER_REGISTRY>/jenkins
+    ports:
+      - 8888:8080
+      - 50000:50000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - /var/lib/jenkins:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
+      # - /opt/service-account:/opt/service-account
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
